@@ -31,11 +31,14 @@ def cargar_json(array_personas):
     text_file.close()
 
 def cargar_array():
-    with open("./ejercicio_crud/personas.json", "r") as archivo:
-        diccionario = json.load(archivo)
-        for d in diccionario:
-            p1 = Persona(d.get("dni"),d.get("nombre"),d.get("edad"))
-            personas.append(p1)
+    try:
+        with open("./ejercicio_crud/personas.json", "r") as archivo:
+            diccionario = json.load(archivo)
+            for d in diccionario:
+                p1 = Persona(d.get("dni"),d.get("nombre"),d.get("edad"))
+                personas.append(p1)
+    except:
+        print("No hay personas guardadas")
     
 def crear():
     d = input("Introduce tu DNI: ").lower()
