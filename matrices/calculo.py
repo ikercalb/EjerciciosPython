@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.reshape(-1, 1)
 import numpy as np
 
 array_a = np.array([[1, 2, 3], [4, 5, 6]])

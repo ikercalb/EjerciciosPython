@@ -14,6 +14,7 @@ y = df['CO2']
 
 # generamos un objeto generico de regresión lineal
 # y le decimos que se ajuste a los datos escogidos
+# esto sirve para generar un objeto que sirve como el modelo
 regr = linear_model.LinearRegression()
 regr.fit(X, y)
 
@@ -21,10 +22,10 @@ regr.fit(X, y)
 x_line = np.linspace(X.Weight.min(), X.Weight.max(), 100)
 y_line = np.linspace(X.Volume.min(), X.Volume.max(), 100)
 
-
 # juntamos los datos de x e y a pares y se los pasamos al modelo para que genere la predicción
 z_vals = regr.predict(np.concatenate((x_line.reshape(-1, 1), y_line.reshape(-1, 1)), axis=1))
 
+# fig sirver para poder configurar el plot
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 ax.scatter(X.Weight, X.Volume, y)
