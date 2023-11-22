@@ -16,8 +16,8 @@ knn = KNeighborsClassifier(n_neighbors=5)
 
 knn.fit(data, classes)
 
-new_x = 2.5
-new_y = 0.8
+new_x = 4.3
+new_y = 1.3
 new_point = [(new_x, new_y)]
 
 prediction = knn.predict(new_point)
