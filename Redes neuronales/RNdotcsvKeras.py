@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import keras as kr
-from sklearn.datasets import make_circles
+from sklearn.datasets import make_moons
 
 # Creamos nuestros datos artificiales, donde buscaremos clasificar
 # dos anillos concéntricos de datos.
-X, Y = make_circles(n_samples=500, factor=0.5, noise=0.05)
+X, Y = make_moons(n_samples=500, noise=0.05)
 
 # Resolución del mapa de predicción.
 res = 100
@@ -31,7 +31,16 @@ plt.scatter(X[Y == 1,0], X[Y == 1,1], c="salmon")
 plt.tick_params(labelbottom=False, labelleft=False)
 
 
+#----entradas----
+
+print(X)
+print(Y)
+
+
+
 #-----Keras-----
+
+
 
 
 

@@ -12,7 +12,7 @@ Y[Y == 2] = 1
 
 
 lr = 0.01           # learning rate
-nn = [2, 16, 8, 1]  # número de neuronas por capa.
+nn = [2, 16, 16, 1]  # número de neuronas por capa.
 
 # Creamos el objeto que contendrá a nuestra red neuronal, como
 # secuencia de capas.
@@ -46,5 +46,10 @@ predicciones = model.predict(nuevos_datos)
 print("Predicciones:")
 print(predicciones)
 
-
-
+for preds in predicciones:
+    if -1.0 <= preds <= -0.333:
+       print("Tu planta es setosa con el valor de: " + str(preds))
+    elif -0.333 <= preds <= 0.333:
+       print("Tu planta es versicolor con el valor de: " + str(preds))
+    elif 0.333 <= preds <= 1.0:
+       print("Tu planta es virginica con el valor de: " + str(preds))

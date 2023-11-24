@@ -14,7 +14,7 @@ modelo.compile(
 )
 
 print("Entrenando")
-historial = modelo.fit(celsius, fahrenheit, epochs=10000000, verbose=False)
+historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)
 print("Entrenado")
 
 

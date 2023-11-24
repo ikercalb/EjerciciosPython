@@ -68,7 +68,7 @@ b3 = tf.Variable(tf.random_normal([nn[3]]), name='bias_3')
 # Vector de predicciones de Y.
 pY = tf.nn.sigmoid(tf.add(tf.matmul(l2, W3), b3))[:, 0]
 
-# Evaluación de las predicciones.
+# Evaluación de las predicciones. con la y predicha y la y real
 loss = tf.losses.mean_squared_error(pY, iY)
 
 # Definimos al optimizador de la red, para que minimice el error.
@@ -91,13 +91,14 @@ with tf.Session() as sess:
         # Cada 25 iteraciones, imprimimos métricas.
         if step % 25 == 0:
             # Cálculo del accuracy.
+            #.mean hace la media de una array de true o false para saber cuanto se esta aproximando
             acc = np.mean(np.round(_pY) == Y)
-
             # Impresión de métricas.
             print('Step', step, '/', n_steps, '- Loss = ', _loss, '- Acc =', acc)
 
             # Obtenemos predicciones para cada punto de nuestro mapa de predicción _pX.
             _pY = sess.run(pY, feed_dict={iX: _pX}).reshape((res, res))
+            print(_pY)
 
             # Y lo guardamos para visualizar la animación.
             iPY.append(_pY)
