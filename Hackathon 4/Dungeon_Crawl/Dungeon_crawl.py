@@ -1,7 +1,6 @@
 from MapGrid import MapGrid
 
 grid = MapGrid()
-
 grid.get_walls()
 grid.draw_grid()
 
